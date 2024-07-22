@@ -26,30 +26,33 @@
     </div>
 
 
-    <!-- Todo: Create a modal with a form to add tasks -->
-    <div class='taskCard' tabindex='-1'>
+    <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
       <div class="modal-dialog">
-
-        <!--Contains title and close button-->
         <div class="modal-content">
-          <h5 class="modal-title">Add Task</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label='Close'></button>
-        </div>
-        <!--Contains everything else-->
-        <div class="modal-body">
-          <label for="taskName">Task Title</label><br>
-          <input type="text" id="taskName" type="text"/>
-          <label for = "taskDate"> Task Due Date</label><br>
-          <input type = "date" id="taskDate">
-          <label for = "taskDescription"> Task Description</label><br>
-          <textarea id="description" name="description"></textarea>
-        </div>
-        <!--Contains add task button-->
-        <div class="modal-footer">
-          <button type="button" id="addTaskButton" class="btn btn-primary">Add Task</button>
+          <div class="modal-header">
+            <h5 class="modal-title" id="formModalLabel">Add Task</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center">
+            <div id="task-form">
+              <div class="mb-3">
+                <label for="task-name" class="form-label">Task Name</label>
+                <input type="text" class="form-control" id="task-name" name="task-name" />
+              </div>
+              <div class="mb-3">
+                <label for="task-description" class="form-label">Task Description</label>
+                <textarea class="form-control" id="task-description" name="task-description" rows="3"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="task-due-date" class="form-label">Due Date</label>
+                <input type="date" class="form-control" id="task-due-date" name="task-due-date" />
+              </div>
+              <button id="add-task" class="btn btn-primary" data-bs-dismiss="modal" data-bs-target="formModal" onclick ="triggerNewTask()">Add Task</button>
+            </div>
+          </div>
         </div>
       </div>
-    </div> 
+    </div>
 
     <div class="row swim-lanes text-center justify-content-between">
 
@@ -108,9 +111,13 @@
 
   <script src="assets/js/script.js"></script>
 
-  <script>
-    createTaskCard();
-  </script>
+  <script> function triggerNewTask(){
+    console.log("triggerNewTask() hit!")
+    handleAddTask();
+  }</script>
+
+  
+
 </body>
 
 </html>
